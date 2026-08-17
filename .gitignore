@@ -75,6 +75,9 @@ backend/output/
 *.avi
 *.mov
 *.mkv
+!public/live-feed.mp4
+!public/*.mp4
+
 
 # --- Logs --------------------------------------------------------------------
 logs/
