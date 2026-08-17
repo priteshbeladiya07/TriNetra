@@ -1,0 +1,6 @@
+# TriNetra pipeline deps. NO database drivers: no psycopg2, no sqlalchemy, no sqlite usage.
+ultralytics>=8.3.0
+opencv-python>=4.10.0
+numpy>=1.26
+supervision>=0.22.0
+easyocr>=1.7.1

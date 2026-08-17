@@ -1,0 +1,106 @@
+# =============================================================================
+# Trinetra - Git Ignore Configuration
+# =============================================================================
+
+# --- Environment & API Keys (CRITICAL: Do NOT commit secrets) ----------------
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+*.env
+!.env.example
+
+# --- Node & Frontend Build ---------------------------------------------------
+node_modules/
+dist/
+dist-ssr/
+build/
+*.tsbuildinfo
+.vite/
+.eslintcache
+.cache/
+
+# --- Python & Backend --------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+backend/venv/
+backend/.venv/
+backend/env/
+
+# --- Testing & Coverage ------------------------------------------------------
+coverage/
+.nyc_output/
+.pytest_cache/
+htmlcov/
+.coverage
+.coverage.*
+
+# --- Uploads, Media & Temporary Model Weights --------------------------------
+# Ignore large video uploads / processed frames if placed in backend/
+backend/uploads/
+backend/temp/
+backend/output/
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# --- Logs --------------------------------------------------------------------
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# --- Operating System & IDE --------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDEs
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

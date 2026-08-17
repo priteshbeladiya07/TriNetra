@@ -1,0 +1,370 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * TriNetra — Futuristic Cyber Defense & Traffic Risk Command Center
+ * Ultra-modern, high-tech tactical design system:
+ * - Dual-Theme: Black (Obsidian Cyber Defense) & White (Clean High-Tech Grid)
+ * - Map stays in clean light contrast mode as requested
+ * - Glassmorphism frosted panels with glowing neon borders
+ * - Tactical HUD corner brackets, crosshairs, and scanlines
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --font-display: "Rajdhani", ui-sans-serif, system-ui;
+  --font-sans: "Inter", ui-sans-serif, system-ui;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-grid: var(--grid);
+  --color-warning: var(--risk-med);
+  --color-risk-high: var(--risk-high);
+  --color-risk-med: var(--risk-med);
+  --color-risk-low: var(--risk-low);
+  --color-signal: var(--signal);
+  --color-cyber-cyan: #06b6d4;
+  --color-cyber-blue: #3b82f6;
+  --color-cyber-purple: #8b5cf6;
+  --color-chart-1: var(--primary);
+  --color-chart-2: var(--signal);
+  --color-chart-3: var(--risk-low);
+  --color-chart-4: var(--risk-med);
+  --color-chart-5: var(--risk-high);
+  --color-sidebar: var(--surface);
+  --color-sidebar-foreground: var(--foreground);
+  --color-sidebar-primary: var(--primary);
+  --color-sidebar-primary-foreground: var(--primary-foreground);
+  --color-sidebar-accent: var(--surface-2);
+  --color-sidebar-accent-foreground: var(--foreground);
+  --color-sidebar-border: var(--border);
+  --color-sidebar-ring: var(--ring);
+}
+
+/* ========================================================================= */
+/* 1. LIGHT THEME (WHITE / COMMAND CENTER GRID)                              */
+/* ========================================================================= */
+:root {
+  --radius: 0.75rem;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #1e293b;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #e0e7ff;
+  --accent-foreground: #3730a3;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #2563eb;
+  --surface: #ffffff;
+  --surface-2: #f8fafc;
+  --grid: rgba(148, 163, 184, 0.25);
+  --risk-high: #ef4444;
+  --risk-med: #f59e0b;
+  --risk-low: #10b981;
+  --signal: #8b5cf6;
+
+  --gradient-command: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(243, 247, 254, 0.85));
+  --gradient-primary: linear-gradient(135deg, #2563eb 0%, #4f46e5 50%, #7c3aed 100%);
+  --gradient-cyber: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #6366f1 100%);
+  --gradient-risk: linear-gradient(90deg, #10b981, #f59e0b, #ef4444);
+
+  --shadow-panel: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04);
+  --shadow-hud: 0 8px 32px -4px rgba(37, 99, 235, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+  --shadow-glow: 0 0 20px -2px rgba(59, 130, 246, 0.35);
+
+  --transition-smooth: 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ========================================================================= */
+/* 2. DARK THEME (BLACK / OBSIDIAN CYBER DEFENSE)                            */
+/* ========================================================================= */
+:root.dark,
+html.dark,
+.dark {
+  color-scheme: dark;
+  --background: #090d16;
+  --foreground: #f8fafc;
+  --card: #0f172a;
+  --card-foreground: #f8fafc;
+  --popover: #0f172a;
+  --popover-foreground: #f8fafc;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --secondary: #1e293b;
+  --secondary-foreground: #f1f5f9;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #1e3a8a;
+  --accent-foreground: #f8fafc;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #334155;
+  --input: #334155;
+  --ring: #3b82f6;
+  --surface: #0f172a;
+  --surface-2: #1e293b;
+  --grid: rgba(51, 65, 85, 0.45);
+
+  --gradient-command: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.85));
+  --shadow-panel: 0 4px 24px -2px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  --shadow-hud: 0 8px 32px -4px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  --shadow-glow: 0 0 20px -2px rgba(59, 130, 246, 0.5);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.04) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.04) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, rgba(6, 182, 212, 0.03) 0px, transparent 50%);
+  }
+
+  .dark body {
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.08) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, rgba(6, 182, 212, 0.06) 0px, transparent 50%);
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+    font-weight: 700;
+  }
+
+  ::selection {
+    background: rgba(59, 130, 246, 0.25);
+  }
+}
+
+/* --- High-Tech Utilities ------------------------------------------- */
+@utility panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-panel);
+  position: relative;
+  transition: box-shadow var(--transition-smooth), transform var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+@utility panel-hud {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-hud);
+  position: relative;
+}
+
+.dark .panel-hud {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(51, 65, 85, 0.8);
+  box-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+@utility panel-hud-glow {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 8px 30px -4px rgba(37, 99, 235, 0.15), inset 0 0 16px rgba(59, 130, 246, 0.04);
+}
+
+.dark .panel-hud-glow {
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  box-shadow: 0 8px 30px -4px rgba(37, 99, 235, 0.25), inset 0 0 16px rgba(59, 130, 246, 0.08);
+}
+
+@utility grid-overlay {
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+@utility text-gradient {
+  background: var(--gradient-cyber);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-gradient-primary {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  font-weight: 600;
+}
+
+/* Tactical Corner Brackets */
+.hud-corner {
+  position: relative;
+}
+.hud-corner::before,
+.hud-corner::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: rgba(59, 130, 246, 0.45);
+  pointer-events: none;
+  transition: border-color var(--transition-smooth), width var(--transition-smooth), height var(--transition-smooth);
+}
+.hud-corner::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+  border-top-left-radius: 4px;
+}
+.hud-corner::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  border-bottom-right-radius: 4px;
+}
+.hud-corner:hover::before,
+.hud-corner:hover::after {
+  border-color: #2563eb;
+  width: 12px;
+  height: 12px;
+}
+
+/* Cyber Scanning Line */
+@keyframes cyber-sweep {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 0.6; }
+  100% { transform: translateY(1000%); opacity: 0; }
+}
+
+.cyber-scan-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.8), transparent);
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.9);
+  animation: cyber-sweep 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Radar rotation */
+@keyframes radar-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-radar {
+  animation: radar-spin 4s linear infinite;
+}
+
+.animate-radar-slow {
+  animation: radar-spin 12s linear infinite;
+}
+
+/* Cyber ticker */
+@keyframes tn-ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  animation: tn-ticker 36s linear infinite;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes tn-rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-rise {
+  animation: tn-rise var(--transition-smooth) both;
+}
+
+/* Weather-driven theme shift */
+[data-weather="light-rain"] {
+  --primary: #2563eb;
+}
+
+[data-weather="heavy-rain"] {
+  --primary: #4338ca;
+}
+
+[data-weather="fog"] {
+  --primary: #475569;
+}
+
+/* Clean Google Maps popup styling (Always high-contrast light map) */
+.gm-style .gm-style-iw-c {
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 12px 36px -6px rgba(15, 23, 42, 0.25), 0 0 0 1px rgba(59, 130, 246, 0.25) !important;
+  padding: 12px 14px !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+  color: #0f172a !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+.gm-style .gm-style-iw-d {
+  overflow: hidden !important;
+}
