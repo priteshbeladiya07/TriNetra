@@ -232,7 +232,7 @@ The implementation includes a greedy constrained allocation strategy that priori
 Location             Risk     Current     Recommended
 -------------------------------------------------------
 Variety Square        87          1            5
-Wardha Road           82          2            4
+Wardha Road           83          2            4
 Pardi Naka            79          0            4
 Sitabuldi             74          3            4
 ```
